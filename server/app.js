@@ -16,6 +16,8 @@ app.use(cookieParser());
 
 
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/dist')));
 app.use(cors());
 app.options("/*", function(req, res, next) {
     // Access-Control-Allow-Credentials: true

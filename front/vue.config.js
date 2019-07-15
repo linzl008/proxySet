@@ -2,6 +2,7 @@ const webpack = require("webpack");
 
 module.exports = {
   publicPath:"./",
+  outputDir:process.env.OUT_DIR ,
   productionSourceMap: !(process.env.SOURCE_MAP === 'close'),//控制sourcemap的开关，生产环境关闭
   configureWebpack: {
     plugins: [

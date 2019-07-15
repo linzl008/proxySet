@@ -3,7 +3,7 @@
         <el-header>
             <div class="header">代理列表</div>
             <div class="btns">
-                <el-button type="primary" size="small" icon="el-icon-refresh" @click="reset">刷新配置</el-button>
+                <el-button type="primary" size="small" icon="el-icon-refresh" @click="reset">重启配置</el-button>
                 <el-button type="primary" size="small" icon="el-icon-plus" @click="addProxy">新增代理</el-button>
             </div>
         </el-header>
@@ -16,7 +16,7 @@
                     <el-tag>{{scope.row.changeOrigin?'是':'否'}}</el-tag>
                 </template>
             </el-table-column>
-            <el-table-column  label="操作" prop="changeOrigin">
+            <el-table-column  label="操作">
                 <template slot-scope="scope">
                     <el-button type="text" @click="editProxy(scope.row,scope.$index)">编辑</el-button>
                     <el-button type="text" @click="deleteProxy(scope.row,scope.$index)">删除</el-button>
