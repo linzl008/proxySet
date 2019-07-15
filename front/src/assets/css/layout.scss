@@ -1,0 +1,113 @@
+
+.layout {
+    color: #fff;
+    height: 100%;
+    .main-container{
+        background-image: url('../../assets/images/bg-default.jpg');
+        background-position: center center;
+        height:100%;
+        .el-header{
+            height: 50px !important;
+            line-height: 50px;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .header {
+                height: 50px;
+                line-height: 50px;
+                //background-color: #d7000f;
+                color: #fff;
+                font-size: 18px;
+                overflow: hidden;
+            }
+        }
+        .el-container {
+            height:100%;
+            /*o内核*/
+            .el-aside .-o-scrollbar{
+                -moz-appearance: none !important;
+                background: rgba(0,255,0,0) !important;
+            }
+            .el-aside {
+                padding-bottom: 50px;
+                position: relative;
+                color: #fff;
+                background-color: rgb(84, 92, 100);
+                overflow-x: hidden;
+                overflow-y: scroll;
+                -ms-scroll-chaining: chained;
+                -ms-content-zooming: zoom;
+                -ms-scroll-rails: none;
+                -ms-content-zoom-limit-min: 100%;
+                -ms-content-zoom-limit-max: 500%;
+                -ms-scroll-snap-type: proximity;
+                -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+                -ms-overflow-style: none;
+                //overflow: auto;
+                /*webkit内核*/
+                &::-webkit-scrollbar {
+                    width: 0px;
+                    height: 0px;
+                }
+
+                // 左侧菜单
+                .menu-wrapper {
+                    &:not(.el-menu--collapse) {
+                        width: 200px;
+                    }
+                    i{
+                        font-size: 20px;
+                    }
+                    .el-menu-item{
+                        font-size: 18px;
+                    }
+                }
+
+                div.collapse-icon-box{
+                    width: 100%;
+                    bottom:10px;
+                    color:#ffd04b;
+                    position: absolute;
+                    .collapse-icon {
+                        display: block;
+                        width: 30px;
+                        font-size: 30px;
+                        margin: auto;
+                    }
+                }
+            }
+            .el-main {
+                background-color: #fff;
+                padding: 0 10px 10px 10px;
+                margin: 10px;
+                .mainTitle{
+                    font-size: 16px;
+                    color:#666666;
+                    font-weight:bold;
+                    //height:60px;
+                    line-height: 56px;
+                    border-bottom: 1px solid #E0E0E0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-flow: wrap;
+                    .label{
+                        color: #999999;
+                    }
+                }
+            }
+            .el-footer {
+                text-align: center;
+                line-height: 30px;
+                background-color: #e4ebf7;
+                font-size: 12px;
+            }
+        }
+    }
+    .width100p{
+        height: 100%;
+    }
+}
+
+

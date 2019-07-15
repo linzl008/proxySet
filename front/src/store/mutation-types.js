@@ -1,0 +1,3 @@
+
+export const CHANGE_LAYER_ZINDEX = 'CHANGE_LAYER_ZINDEX'
+export const DEL_LAYER = 'DEL_LAYER'

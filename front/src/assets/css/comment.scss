@@ -1,0 +1,607 @@
+$bgcolor: #e0e7f0;
+$frameColor: #E0E0E0;
+$btnFrontColot: #03a4ee;
+$buttonColor: #8896b4;
+$borderColor: #d1d2e0;
+$inputFrameColor: #a5a6bb;
+$mianFamilyColor: #333;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 100px;
+
+  body {
+    height: 100%;
+    //min-width: 1366px;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 16px;
+    color: $mianFamilyColor;
+  }
+}
+
+i {
+  font-style: normal;
+}
+
+ul, li {
+  list-style: none;
+}
+
+textarea {
+  font-family: "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "微软雅黑";
+}
+
+// 按键群组
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.button_q1, .button_c1 {
+  min-width: 80px;
+  padding: 0 10px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: $buttonColor;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.button_q2, .button_c2 {
+  min-width: 80px;
+  padding: 0 10px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: $mianFamilyColor;
+  letter-spacing: 1px;
+  border: 1px solid $borderColor;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+    background-color: $frameColor;
+  }
+}
+
+.button_c1, .button_c2 {
+  border-radius: 14px;
+}
+
+// 必须填写 * <span class="redRequired">*</span>
+.redRequired {
+  color: red !important;
+  // font-size: 16px;
+}
+
+// 弹框
+.el-dialog {
+  .pop_content {
+    .label {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    .el-input, .el-textarea {
+      width: 300px;
+    }
+  }
+
+  // .el-dialog__header {//下划线
+  //   box-shadow: 0px 1px  $frameColor;
+  // }
+  .pop_btns {
+    text-align: center;
+    // margin: auto;
+    // padding-top: 36px;
+    // position: relative;
+    .submit {
+      margin-right: 20px;
+    }
+
+    .el-alert {
+      position: absolute;
+      margin-top: -36px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      min-width: 360px;
+      width: 80%;
+    }
+  }
+}
+
+// 滑动条1(主体内容)
+.scrollbarStyle1::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+.scrollbarStyle1::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+  border-radius: 3px;
+}
+
+/*定义滑块 内阴影+圆角*/
+.scrollbarStyle1::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+// 滑动条2(menu侧边栏)
+.scrollbarStyle2::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #21273a;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+.scrollbarStyle2::-webkit-scrollbar-track {
+  background-color: #21273a;
+  border-radius: 3px;
+}
+
+/*定义滑块 内阴影+圆角*/
+.scrollbarStyle2::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+
+// 清除浮动
+.clearfix:after {
+  content: "";
+  display: table;
+  height: 0;
+  visibility: both;
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /* IE/7/6*/
+}
+
+// 主体内容的基本样式 及table样式
+.frame_main {
+  background-color: #fff;
+  // border-radius: 8px;
+  overflow: auto;
+  // padding: 4px 4px 0 4px;
+  border: 1px solid #fff;
+}
+
+.frame_header {
+  min-height: 40px;
+  line-height: 40px;
+  padding: 8px 10px;
+  border-bottom: 1px solid $frameColor;
+
+  .name {
+    float: left;
+    font-size: 16px;
+    //margin-left: 10px;
+    font-weight: bold;
+  }
+
+  .btns {
+    float: right;
+    padding-top: 4px;
+    button {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .submit {
+      margin-right: 10px;
+    }
+  }
+}
+
+.frame_dottedForm {
+  .title {
+    border-bottom: 1px dotted $borderColor;
+    margin-top: 16px;
+    color: #999;
+  }
+
+  ul {
+    padding: 10px 20px;
+
+    li {
+      float: left;
+      width: 50%;
+      min-width: 360px;
+      margin: 5px 0;
+
+      > i {
+        float: left;
+        width: 5em;
+        text-align: right;
+        line-height: 28px;
+      }
+
+      .el-input, .el-textarea, .el-select, .el-cascader {
+        width: 300px;
+      }
+    }
+
+    .one {
+      width: 100%;
+
+      .el-input, .el-textarea {
+        width: 600px;
+      }
+    }
+  }
+}
+
+.c03a4ee {
+  color: #03a4ee;
+
+  .el-radio__input.is-checked .el-radio__inner {
+    border-color: #03a4ee;
+    background: #03a4ee;
+  }
+
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    background-color: #03a4ee;
+    border-color: #03a4ee;
+    box-shadow: -1px 0 0 0 #03a4ee;
+  }
+
+  .el-radio__input.is-checked + .el-radio__label {
+    color: #03a4ee
+  }
+}
+
+// table样式
+.el-table {
+  &::before {
+    background-color: #fff;
+  }
+
+  tr {
+    color: #333;
+    font-size: 14px;
+
+    th {
+      // height: 32px;
+      // padding: 7px 0;
+      height: 54px;
+      background-color: #eff4fb !important;
+    }
+
+    td {
+      padding: 7px 0;
+      height: 54px;
+      border-bottom-color: #e0e0e0;
+      .btn {
+        cursor: pointer;
+        color: #03a4ee;
+        text-decoration: underline;
+        text-underline-position: under;
+      }
+
+      .el-button {
+        margin-left: 0;
+        margin-right: 10px;
+        user-select: text; //可以复制
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .el-button.delBtn {
+        color: red;
+      }
+
+      .el-button:hover {
+        > span {
+          text-decoration: underline;
+
+          > div {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .yellow {
+        color: #ff9900;
+      }
+
+      .red {
+        color: #ff3333;
+      }
+
+      .el-button {
+        text-decoration: underline;
+        font-size: 14px;
+      }
+    }
+
+    &:nth-child(10n) {
+      td {
+        // padding-bottom: 10px;
+        // border-bottom: 10px solid #fff;
+        //border: none;
+      }
+    }
+
+    // &:first-child{
+    //     td {
+    //         // padding-bottom: 10px;
+    //         border-top: 6px solid #fff;
+    //     }
+    // }
+  }
+
+  tr.el-table__row {
+    &:nth-child(2n) {
+      background-color: rgba(239, 244, 251, 0.1);
+    }
+  }
+
+  .isPoause { //账号停用
+    color: #ccc
+  }
+
+  .el-table__fixed-right-patch {
+    background-color: #eff4fb;
+
+    &::before {
+      background-color: #fff;
+    }
+  }
+
+  .el-table__fixed-right {
+    background-color: #fff;
+
+    &::before {
+      background-color: #fff;
+    }
+  }
+}
+
+.payOver{
+  .el-table{
+    .el-table--border th, th,tr{
+      border-bottom-color: #e0e0e0;
+      border-right-color: #e0e0e0;
+      td{
+        border-bottom-color: #e0e0e0;
+        border-right-color: #e0e0e0;
+      }
+    }
+  }
+}
+// 分页样式
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  background-color: #fff;
+}
+
+// 标题头
+.headerName {
+  //color:#999;
+  background-color: #fff;
+  position: relative;
+  font-size: 14px;
+  line-height: 40px;
+  // margin-bottom: 20px;
+  padding-left: 10px;
+  box-shadow:  0px 5px 5px rgba(146, 148, 151, 0.06);
+
+  > .goBack {
+    cursor: pointer;
+    color: $btnFrontColot;
+    border-bottom: 1px solid $btnFrontColot;
+  }
+}
+
+// 通用样式
+.fr {
+  float: right;
+}
+
+.width100p {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+.vcenter {
+  display: flex;
+  align-items: center;
+}
+
+.fbold {
+  font-weight: bold;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
+.plr10 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.plr20 {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.plr40 {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.status-right {
+  color: #008000
+}
+
+.status-error {
+  color: #FF0000
+}
+
+.status-normal {
+  color: #999
+}
+
+/*表格内部关联电路*/
+.el-table {
+  .inner {
+    padding: 0;
+
+    .cell {
+      padding: 0;
+      line-height: 60px;
+    }
+  }
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.flex-v-center {
+  display: flex;
+  align-items: center;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.bdb {
+  border-bottom: 1px solid #f3f7fd;
+}
+
+.ul-3-col {
+  padding: 0 30px;
+  font-size: 14px;
+  line-height: 20px;
+  ul {
+    min-width: 400px;
+    //border-bottom: 1px solid #f3f7fd;
+    padding: 15px 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    .flex-3{
+      width: 100%;
+    }
+    .flex-2{
+      width: 66.6%;
+    }
+    li {
+      margin: 8px 0;
+      width: 33.3%;
+      line-height: 18px;
+      float: left;
+      display: flex;
+      i {
+        display: inline-block;
+        width: 8em;
+        text-align: right;
+        margin-right: 15px;
+      }
+      .el-input__icon{
+
+        width: auto;
+        margin-right: 0px;
+      }
+      span {
+        flex: 1;
+        color: #999;
+      }
+    }
+  }
+}
+
+/* 通用图标 */
+/*
+.ic_button_import {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_button_import.png') no-repeat center;
+}
+
+.ic_button_export {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_button_export.png') no-repeat center;
+}
+
+.ic_button_build {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_btn_build.png') no-repeat center;
+}
+
+.ic_btn_allocation {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_btn_allocation.png') no-repeat center;
+}
+
+.ic_btn_Scrap {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_btn_Scrap.png') no-repeat center;
+}
+
+.ic_btn_logout {
+  width: 16px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: sub;
+  cursor: pointer;
+  background: url('../images/home/ic_btn_logout.png') no-repeat center;
+}
+
+
+
+*/
