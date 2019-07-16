@@ -1,6 +1,6 @@
 const fs = require('fs')
 var proxy = require('express-http-proxy');
-
+// var proxy = require('http-proxy-middleware');
 
 async function startTask(app){
     // 反向代理（这里把需要进行反代的路径配置到这里即可）
@@ -23,8 +23,38 @@ async function startTask(app){
             app.use(proxyElement.src,proxy(proxyElement.target,opts));
         }
     }
+
 }
 
+/**
+ * http-proxy-middleware  因为 bodyParser 导致的代理转发带有 body 数据的 post 请求会失败
+ * @param app
+ */
+async function httpMiddleProxy(app) {
+    var restream = function(proxyReq, req, res, options) {
+        if (req.body) {
+            let bodyData = JSON.stringify(req.body);
+            // incase if content-type is application/x-www-form-urlencoded -> we need to change to application/json
+            proxyReq.setHeader('Content-Type','application/json');
+            proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+            // stream the content
+            proxyReq.write(bodyData);
+        }
+    }
+    let proxyList = await readProxyFile();
+    for (let i = 0; i < proxyList.length; i++) {
+        const proxyElement = proxyList[i];
+        if(proxyElement.changeOrigin){
+            console.log(`[Proxy]: ${proxyElement.src}  -->  ${proxyElement.target}`);
+            app.use(proxy(proxyElement.src,  {
+                target: proxyElement.target,
+                secure: false,
+                changeOrigin: true,
+                onProxyReq: restream
+            }));
+        }
+    }
+}
 
 /**
  * 读取配置文件

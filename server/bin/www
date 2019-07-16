@@ -8,8 +8,8 @@ var app = require('../app');
 var debug = require('debug')('nodeexpress:server');
 var http = require('http');
 let isStart = false;
-
-
+const OPENURL = require('../utils/openUrl')
+const TOOL = require('../utils/tool')
 /**
  * Get port from environment and store in Express.
  */
@@ -29,6 +29,10 @@ function startServer() {
   /*开始任务*/
   const Proxy = require('../proxy/index.js');
   Proxy.startTask(app);
+  let IP = TOOL.getIPAdress();
+  console.log("Listen in : http://localhost:"+port);
+  console.log("Listen in : http://"+IP+":"+port);
+  OPENURL(`http://localhost:${port}`);
   /**
    * Listen on provided port, on all network interfaces.
    */
@@ -36,6 +40,8 @@ function startServer() {
   server.on('error', onError);
   server.on('listening', onListening);
 }
+
+
 
 /**
  * 重启服务
@@ -48,8 +54,8 @@ function stopServer() {
       resolve({})
     });
   }))
-
 }
+
 /**
  * Normalize a port into a number, string, or false.
  */
