@@ -1,8 +1,17 @@
 const fs = require('fs')
-var proxy = require('express-http-proxy');
-// var proxy = require('http-proxy-middleware');
+// var proxy = require('express-http-proxy');
+var proxy = require('http-proxy-middleware');
 
 async function startTask(app){
+    httpMiddleProxy(app)
+
+}
+
+/**
+ * express-http-proxy
+ * @param app
+ */
+async function expressProxy(app){
     // 反向代理（这里把需要进行反代的路径配置到这里即可）
     let opts = {
         preserveHostHdr: true,
@@ -23,9 +32,7 @@ async function startTask(app){
             app.use(proxyElement.src,proxy(proxyElement.target,opts));
         }
     }
-
 }
-
 /**
  * http-proxy-middleware  因为 bodyParser 导致的代理转发带有 body 数据的 post 请求会失败
  * @param app

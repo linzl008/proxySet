@@ -1,1 +1,1 @@
-[{"src":"/auth","target":"http://192.168.2.24:8762","changeOrigin":true},{"src":"/unicom","target":"http://115.231.156.62","changeOrigin":true},{"src":"/system","target":"http://192.168.2.24:8762","changeOrigin":true}]
+[{"src":"/book","target":"https://m.uctxt.com","changeOrigin":true},{"src":"/auth","target":"http://192.168.2.24:8762","changeOrigin":true},{"src":"/unicom","target":"http://115.231.156.62","changeOrigin":true},{"src":"/system","target":"http://192.168.2.24:8762","changeOrigin":true}]
